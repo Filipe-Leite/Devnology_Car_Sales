@@ -73,8 +73,8 @@ public class LinhaConsultarAdapter extends BaseAdapter {
         //CRIANDO O BOTÃO  EXCLUIR PARA DELETARMOS UM REGISTRO DO BANCO DE DADOS
         Button buttonExcluir             = (Button)   viewLinhaLista.findViewById(R.id.buttonExcluir);
 
-        //CRIANDO O BOTÃO PARA EDITAR UM REGISTRO CADASTRADO
-        Button   buttonEditar            = (Button)   viewLinhaLista.findViewById(R.id.buttonEditar);
+        //CRIANDO O BOTÃO PARA VENDER UM REGISTRO CADASTRADO
+        Button   buttonVender            = (Button)   viewLinhaLista.findViewById(R.id.buttonVender);
 
         //SETANDO O CÓDIGO NO CAMPO DA NOSSA VIEW
         textViewCodigo.setText(String.valueOf(carroModels.get(position).getCodigo()));
@@ -104,9 +104,18 @@ public class LinhaConsultarAdapter extends BaseAdapter {
         });
         //CRIANDO EVENTO CLICK PARA O BOTÃO QUE VAI REDIRECIONAR PARA A TELA DE EDIÇÃO
         // DO REGISTRO.
-        buttonEditar.setOnClickListener(new View.OnClickListener() {
+        buttonVender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
+                carroRepository.Excluir(carroModels.get(position).getCodigo());
+
+                //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
+                Toast.makeText(consultarActivity, "Carro Vendido!", Toast.LENGTH_LONG).show();
+
+                //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
+                AtualizarLista();
 
 
             }
