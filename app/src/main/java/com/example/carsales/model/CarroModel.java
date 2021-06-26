@@ -5,6 +5,7 @@ public class CarroModel {
 
     private Integer codigo;
     private String  modelo;
+    private String  preco;
 
     public Integer getCodigo() {
         return codigo;
@@ -17,5 +18,11 @@ public class CarroModel {
     }
     public void setModelo(String modelo) {
         this.modelo = modelo;
+    }
+    public String getPreco() {
+        return preco;
+    }
+    public void setPreco(String preco) {
+        this.preco = preco;
     }
 }

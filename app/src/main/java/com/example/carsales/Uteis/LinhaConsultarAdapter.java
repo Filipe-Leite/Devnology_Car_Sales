@@ -64,8 +64,11 @@ public class LinhaConsultarAdapter extends BaseAdapter {
         //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
         TextView textViewCodigo          = (TextView) viewLinhaLista.findViewById(R.id.textViewCodigo);
 
-        //CAMPO QUE VAI MOSTRAR O NOME DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O MODELO DO CARRO
         TextView textViewModelo            = (TextView) viewLinhaLista.findViewById(R.id.textViewModelo);
+
+        //CAMPO QUE VAI MOSTRAR O PREÇO DO CARRO
+        TextView textViewPreco            = (TextView) viewLinhaLista.findViewById(R.id.textViewPreco);
 
         //CRIANDO O BOTÃO  EXCLUIR PARA DELETARMOS UM REGISTRO DO BANCO DE DADOS
         Button buttonExcluir             = (Button)   viewLinhaLista.findViewById(R.id.buttonExcluir);
@@ -76,8 +79,11 @@ public class LinhaConsultarAdapter extends BaseAdapter {
         //SETANDO O CÓDIGO NO CAMPO DA NOSSA VIEW
         textViewCodigo.setText(String.valueOf(carroModels.get(position).getCodigo()));
 
-        //SETANDO O NOME NO CAMPO DA NOSSA VIEW
+        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
         textViewModelo.setText(carroModels.get(position).getModelo());
+
+        //SETANDO O PREÇO NO CAMPO DA NOSSA VIEW
+        textViewPreco.setText(carroModels.get(position).getPreco());
 
         //CRIANDO EVENTO CLICK PARA O BOTÃO DE EXCLUIR REGISTRO
         buttonExcluir.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +114,7 @@ public class LinhaConsultarAdapter extends BaseAdapter {
 
         return viewLinhaLista;
     }
-    //ATUALIZA A LISTTA DEPOIS DE EXCLUIR UM REGISTRO
+    //ATUALIZA A LISTA DEPOIS DE EXCLUIR UM REGISTRO
     public void AtualizarLista(){
 
         this.carroModels.clear();

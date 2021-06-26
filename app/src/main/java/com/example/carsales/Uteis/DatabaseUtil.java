@@ -26,7 +26,8 @@ public class DatabaseUtil extends SQLiteOpenHelper {
 
         stringBuilderCreateTable.append(" CREATE TABLE tb_carro (");
         stringBuilderCreateTable.append("        id_carro      INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        stringBuilderCreateTable.append("        ds_modelo        TEXT    NOT NULL)            ");
+        stringBuilderCreateTable.append("        ds_modelo        TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_preco         TEXT    NOT NULL)            ");
 
         db.execSQL(stringBuilderCreateTable.toString());
 

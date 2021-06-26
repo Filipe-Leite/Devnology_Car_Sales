@@ -33,6 +33,7 @@ public class CarroRepository {
         ContentValues contentValues = new ContentValues();
         /*MONTANDO OS PARAMETROS PARA SEREM SALVOS*/
         contentValues.put("ds_modelo", carroModel.getModelo());
+        contentValues.put("ds_preco", carroModel.getPreco());
 
         /*EXECUTANDO INSERT DE UM NOVO REGISTRO*/
         databaseUtil.GetConexaoDataBase().insert("tb_carro", null, contentValues);
@@ -48,7 +49,8 @@ public class CarroRepository {
         ContentValues contentValues = new ContentValues();
 
         /*MONTA OS PARAMENTROS PARA REALIZAR UPDATE NOS CAMPOS*/
-        contentValues.put("ds_nome", carroModel.getModelo());
+        contentValues.put("ds_modelo", carroModel.getModelo());
+        contentValues.put("ds_preco", carroModel.getPreco());
 
         /*REALIZANDO UPDATE PELA CHAVE DA TABELA*/
         databaseUtil.GetConexaoDataBase().update("tb_carro", contentValues, "id_carro = ?", new String[]{Integer.toString(carroModel.getCodigo())});
@@ -66,7 +68,7 @@ public class CarroRepository {
     }
 
     /***
-     * CONSULTA UMA PESSOA CADASTRADA PELO CÓDIGO
+     * CONSULTA UMA CARRO CADASTRADA PELO CÓDIGO
      * @param codigo
      * @return
      */
@@ -77,19 +79,20 @@ public class CarroRepository {
 
         cursor.moveToFirst();
 
-        ///CRIANDO UMA NOVA PESSOAS
+        ///CRIANDO UM NOVO CARRO
         CarroModel carroModel = new CarroModel();
 
-        //ADICIONANDO OS DADOS DA CARRO
+        //ADICIONANDO OS DADOS DO CARRO
         carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
         carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
+        carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
 
-        //RETORNANDO A PESSOA
+        //RETORNANDO O CARRO
         return carroModel;
     }
 
     /***
-     * CONSULTA TODAS AS PESSOAS CADASTRADAS NA BASE
+     * CONSULTA TODOS OS CARROS CADASTRADAS NA BASE
      * @return
      */
     public List<CarroModel> SelecionarTodos(){
@@ -100,7 +103,8 @@ public class CarroRepository {
         //MONTA A QUERY A SER EXECUTADA
         StringBuilder stringBuilderQuery = new StringBuilder();
         stringBuilderQuery.append(" SELECT id_carro,      ");
-        stringBuilderQuery.append("        ds_modelo       ");
+        stringBuilderQuery.append("        ds_modelo,       ");
+        stringBuilderQuery.append("        ds_preco       ");
         stringBuilderQuery.append("  FROM  tb_carro       ");
         stringBuilderQuery.append(" ORDER BY ds_modelo       ");
 
@@ -115,21 +119,22 @@ public class CarroRepository {
         //REALIZA A LEITURA DOS REGISTROS ENQUANTO NÃO FOR O FIM DO CURSOR
         while (!cursor.isAfterLast()) {
 
-            /* CRIANDO UMA NOVA PESSOAS */
+            /* CRIANDO UM NOVO CARRO */
             carroModel = new CarroModel();
 
-            //ADICIONANDO OS DADOS DA PESSOA
+            //ADICIONANDO OS DADOS DO CARRO
             carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
             carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
+            carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
 
 
-            //ADICIONANDO UMA PESSOA NA LISTA
+            //ADICIONANDO UM CARROS NA LISTA
             carros.add(carroModel);
 
             //VAI PARA O PRÓXIMO REGISTRO
             cursor.moveToNext();
         }
-        //RETORNANDO A LISTA DE PESSOAS
+        //RETORNANDO A LISTA DE CARROS
         return carros;
     }
 }

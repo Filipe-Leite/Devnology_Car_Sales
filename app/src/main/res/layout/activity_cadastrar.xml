@@ -15,6 +15,21 @@ android:layout_height="match_parent">
         android:singleLine="true"
         android:id="@+id/editTextModelo" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Preço:"
+        android:id="@+id/textViewPreco" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:id="@+id/editTextPreco" />
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

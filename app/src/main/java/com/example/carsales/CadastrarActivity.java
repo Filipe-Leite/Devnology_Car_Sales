@@ -15,6 +15,7 @@ public class CadastrarActivity extends AppCompatActivity {
 
     /*COMPONENTES DA TELA*/
     EditText editTextModelo;
+    EditText editTextPreco;
     Button buttonSalvar;
     Button buttonVoltar;
 
@@ -33,6 +34,7 @@ public class CadastrarActivity extends AppCompatActivity {
     protected void CriarComponentes() {
 
         editTextModelo = (EditText) this.findViewById(R.id.editTextModelo);
+        editTextPreco = (EditText) this.findViewById(R.id.editTextPreco);
         buttonSalvar = (Button) this.findViewById(R.id.buttonSalvar);
         buttonVoltar = (Button) this.findViewById(R.id.buttonVoltar);
 
@@ -69,8 +71,11 @@ public class CadastrarActivity extends AppCompatActivity {
             /*CRIANDO UM OBJETO PESSOA*/
             CarroModel carroModel = new CarroModel();
 
-            /*SETANDO O VALOR DO CAMPO NOME*/
+            /*SETANDO O VALOR DO CAMPO MODELO*/
             carroModel.setModelo(editTextModelo.getText().toString().trim());
+
+            /*SETANDO O VALOR DO CAMPO PRECO*/
+            carroModel.setPreco(editTextPreco.getText().toString().trim());
 
             /*SALVANDO UM NOVO REGISTRO*/
             new CarroRepository(this).Salvar(carroModel);
@@ -81,5 +86,6 @@ public class CadastrarActivity extends AppCompatActivity {
         protected void LimparCampos () {
 
             editTextModelo.setText(null);
+            editTextPreco.setText(null);
         }
 }
