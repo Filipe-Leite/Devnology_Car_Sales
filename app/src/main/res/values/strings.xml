@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CarSales</string>
+    <string name="salvar">Salvar</string>
+    <string name="voltar">Voltar</string>
+    <string name="modelo_obrigatorio">O nome é de preenchimento obrigatório!</string>
+    <string name="registro_salvo_sucesso">Registro salvo com sucesso!</string>
 </resources>
