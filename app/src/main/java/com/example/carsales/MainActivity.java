@@ -66,9 +66,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         else if(opcaoMenu.equals("Carros vendidos")){
-            intentRedirecionar = new Intent(this, ConsultarActivity.class);
-            startActivity(intentRedirecionar);
-            finish();
+            Toast.makeText(getApplicationContext(), "Opção inválida!", Toast.LENGTH_SHORT).show();
         }
         else
             Toast.makeText(getApplicationContext(), "Opção inválida!", Toast.LENGTH_SHORT).show();

@@ -31,6 +31,16 @@ public class DatabaseUtil extends SQLiteOpenHelper {
 
         db.execSQL(stringBuilderCreateTable.toString());
 
+        StringBuilder stringBuilderCreateTableVendido = new StringBuilder();
+
+        stringBuilderCreateTableVendido.append(" CREATE TABLE tb_vendido (");
+        stringBuilderCreateTableVendido.append("        id_Vendido      INTEGER PRIMARY KEY AUTOINCREMENT, ");
+        stringBuilderCreateTableVendido.append("        ds_modelo        TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_preco         TEXT    NOT NULL)            ");
+
+        db.execSQL(stringBuilderCreateTableVendido.toString());
+
+
     }
     /*SE TROCAR A VERSÃO DO BANCO DE DADOS VOCÊ PODE EXECUTAR ALGUMA ROTINA
       COMO CRIAR COLUNAS, EXCLUIR ENTRE OUTRAS */
