@@ -40,6 +40,27 @@ public class CarroRepository {
 
     }
 
+    public Integer Transferir(int codigo){
+
+        Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery("SELECT * FROM tb_carro WHERE id_carro= " + codigo, null);
+
+        cursor.moveToFirst();
+
+        ContentValues contentValues = new ContentValues();
+
+        CarroModel carroModel = new CarroModel();
+
+        carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
+        carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
+
+        contentValues.put("ds_modelo", carroModel.getModelo());
+        contentValues.put("ds_preco", carroModel.getPreco());
+
+        databaseUtil.GetConexaoDataBase().insert("tb_vendido", null,contentValues);
+        //EXCLUINDO  REGISTRO E RETORNANDO O NÚMERO DE LINHAS AFETADAS
+        return databaseUtil.GetConexaoDataBase().delete("tb_carro", "id_carro = ?", new String[]{Integer.toString(codigo)});
+    }
+
     /***
      * ATUALIZA UM REGISTRO JÁ EXISTENTE NA BASE
      * @param carroModel

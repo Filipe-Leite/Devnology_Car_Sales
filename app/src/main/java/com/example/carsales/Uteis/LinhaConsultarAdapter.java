@@ -109,7 +109,7 @@ public class LinhaConsultarAdapter extends BaseAdapter {
             public void onClick(View v) {
 
                 //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
-                carroRepository.Excluir(carroModels.get(position).getCodigo());
+                carroRepository.Transferir(carroModels.get(position).getCodigo());
 
                 //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
                 Toast.makeText(consultarActivity, "Carro Vendido!", Toast.LENGTH_LONG).show();
