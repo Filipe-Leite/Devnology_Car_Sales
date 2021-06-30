@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CarSales">
-        <activity android:name=".CarrosVendidos"></activity>
+        <activity android:name=".VenderActivity"></activity>
+        <activity android:name=".CarrosVendidos" />
         <activity android:name=".ConsultarActivity" />
         <activity android:name=".CadastrarActivity" />
         <activity android:name=".MainActivity">

@@ -1,6 +1,7 @@
 package com.example.carsales.Uteis;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.carsales.ConsultarActivity;
 import com.example.carsales.R;
+import com.example.carsales.VenderActivity;
 import com.example.carsales.model.CarroModel;
 import com.example.carsales.repository.CarroRepository;
 
@@ -108,14 +110,25 @@ public class LinhaConsultarAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
-                carroRepository.Transferir(carroModels.get(position).getCodigo());
 
-                //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
-                Toast.makeText(consultarActivity, "Carro Vendido!", Toast.LENGTH_LONG).show();
+                Intent intentRedirecionar = new Intent(consultarActivity, VenderActivity.class);
 
-                //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
-                AtualizarLista();
+                intentRedirecionar.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                intentRedirecionar.putExtra("id_carro",carroModels.get(position).getCodigo());
+
+                consultarActivity.startActivity(intentRedirecionar);
+
+                consultarActivity.finish();
+
+//                //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
+//                carroRepository.Transferir(carroModels.get(position).getCodigo());
+//
+//                //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
+//                Toast.makeText(consultarActivity, "Carro Vendido!", Toast.LENGTH_LONG).show();
+//
+//                //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
+//                AtualizarLista();
 
 
             }
