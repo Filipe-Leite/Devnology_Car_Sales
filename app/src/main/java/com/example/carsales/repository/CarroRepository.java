@@ -50,9 +50,11 @@ public class CarroRepository {
 
         CarroModel carroModel = new CarroModel();
 
+        carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
         carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
         carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
 
+        contentValues.put("id_carro", carroModel.getCodigo());
         contentValues.put("ds_modelo", carroModel.getModelo());
         contentValues.put("ds_preco", carroModel.getPreco());
 
