@@ -16,6 +16,7 @@ public class VenderActivity extends AppCompatActivity {
     /*COMPONENTES DA TELA*/
     EditText editTextCodigo;
     EditText editTextPrecoVenda;
+    EditText editTextDataVenda;
     Button buttonVender;
 
     @Override
@@ -37,10 +38,10 @@ public class VenderActivity extends AppCompatActivity {
     //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
     protected void CriarComponentes() {
 
-        editTextCodigo = (EditText) this.findViewById(R.id.editTextCodigo);
+        editTextCodigo     = (EditText) this.findViewById(R.id.editTextCodigo);
         editTextPrecoVenda = (EditText) this.findViewById(R.id.editTextPrecoVenda);
-        buttonVender = (Button) this.findViewById(R.id.buttonVender);
-
+        editTextDataVenda  = (EditText) this.findViewById(R.id.editTextDataVenda);
+        buttonVender       = (Button) this.findViewById(R.id.buttonVender);
     }
 
     //CRIA OS EVENTOS DOS COMPONENTES
@@ -58,12 +59,6 @@ public class VenderActivity extends AppCompatActivity {
     }
 
 
-    //LIMPA OS CAMPOS APÓS SALVAR AS INFORMAÇÕES
-    protected void LimparCampos() {
-
-        editTextPrecoVenda.setText(null);
-    }
-
     //ALTERA UM REGISTRO
     protected void Alterar_onClick() {
 
@@ -74,6 +69,9 @@ public class VenderActivity extends AppCompatActivity {
 
         /*SETANDO O VALOR DO CAMPO DE VENDA*/
         carroModel.setPrecoVenda(editTextPrecoVenda.getText().toString().trim());
+
+        /*SETANDO O VALOR DO CAMPO DE VENDA*/
+        carroModel.setDataVenda(editTextDataVenda.getText().toString().trim());
 
         /*ALTERANDO O REGISTRO*/
         new CarroRepository(this).Atualizar(carroModel);
@@ -105,6 +103,9 @@ public class VenderActivity extends AppCompatActivity {
         editTextCodigo.setText(String.valueOf(carroModel.getCodigoVenda()));
 
         //SETA O NOME NA VIEW
+        editTextDataVenda.setText(carroModel.getDataVenda());
+
+        //SETA O PRECO DE VENDA NA VIEW
         editTextPrecoVenda.setText(carroModel.getPrecoVenda());
 
 

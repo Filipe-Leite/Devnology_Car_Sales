@@ -12,8 +12,11 @@ public class CarroModel {
     private String  cor;
     private String  chassi;
     private String  datacompra;
+    private String  datavenda;
     private String  preco;
     private String  precovenda;
+    private String  lucro;
+    private String  comissao;
 
 
     public Integer getCodigo() {
@@ -35,13 +38,6 @@ public class CarroModel {
     }
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public String getPrecoVenda() {
-        return precovenda;
-    }
-    public void setPrecoVenda(String precodevenda) {
-        this.precovenda = precodevenda;
     }
 
     public String getMarca() {
@@ -86,11 +82,39 @@ public class CarroModel {
         this.datacompra = datacompra;
     }
 
+    public String getDataVenda() {
+        return datavenda;
+    }
+    public void setDataVenda(String datavenda) {
+        this.datavenda = datavenda;
+    }
+
     public String getPreco() {
         return preco;
     }
     public void setPreco(String preco) {
         this.preco = preco;
+    }
+
+    public String getPrecoVenda() {
+        return precovenda;
+    }
+    public void setPrecoVenda(String precodevenda) {
+        this.precovenda = precodevenda;
+    }
+
+    public String getLucro() {
+        return lucro;
+    }
+    public void setLucro(String lucro) {
+        this.lucro = lucro;
+    }
+
+    public String getComissão() {
+        return comissao;
+    }
+    public void setComissao(String comissao) {
+        this.comissao = comissao;
     }
 
 }

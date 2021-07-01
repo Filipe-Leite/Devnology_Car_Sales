@@ -103,6 +103,7 @@ public class CarroRepository {
         /*MONTA OS PARAMENTROS PARA REALIZAR UPDATE NOS CAMPOS*/
 
         contentValues.put("ds_preco_venda",      carroModel.getPrecoVenda());
+        contentValues.put("ds_data_venda",       carroModel.getDataVenda());
 
         /*REALIZANDO UPDATE PELA CHAVE DA TABELA*/
         databaseUtil.GetConexaoDataBase().update("tb_vendido", contentValues, "id_vendido = ?", new String[]{Integer.toString(carroModel.getCodigo())});
