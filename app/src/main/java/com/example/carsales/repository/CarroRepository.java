@@ -203,5 +203,54 @@ public class CarroRepository {
         //RETORNANDO A LISTA DE CARROS
         return carros;
     }
+
+    public List<CarroModel> SelecionarTodosVendidos() {
+
+        List<CarroModel> carrosvendidos = new ArrayList<CarroModel>();
+
+
+        //MONTA A QUERY A SER EXECUTADA
+        StringBuilder stringBuilderQuery = new StringBuilder();
+        stringBuilderQuery.append(" SELECT id_vendido,      ");
+        stringBuilderQuery.append("        id_carro,       ");
+        stringBuilderQuery.append("        ds_modelo,       ");
+        stringBuilderQuery.append("        ds_placa,       ");
+        stringBuilderQuery.append("        ds_preco,       ");
+        stringBuilderQuery.append("        ds_preco_venda       ");
+        stringBuilderQuery.append("  FROM  tb_vendido       ");
+        stringBuilderQuery.append(" ORDER BY ds_modelo       ");
+
+        //CONSULTANDO OS REGISTROS CADASTRADOS
+        Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery(stringBuilderQuery.toString(), null);
+
+        /*POSICIONA O CURSOR NO PRIMEIRO REGISTRO*/
+        cursor.moveToFirst();
+
+        CarroModel carroModel;
+
+        //REALIZA A LEITURA DOS REGISTROS ENQUANTO NÃO FOR O FIM DO CURSOR
+        while (!cursor.isAfterLast()) {
+
+            /* CRIANDO UM NOVO CARRO */
+            carroModel = new CarroModel();
+
+            //ADICIONANDO OS DADOS DO CARRO
+            carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
+            carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
+            carroModel.setPlaca(cursor.getString(cursor.getColumnIndex("ds_placa")));
+            carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
+            carroModel.setPrecoVenda(cursor.getString(cursor.getColumnIndex("ds_preco_venda")));
+
+
+            //ADICIONANDO UM CARROS NA LISTA
+            carrosvendidos.add(carroModel);
+
+            //VAI PARA O PRÓXIMO REGISTRO
+            cursor.moveToNext();
+        }
+        //RETORNANDO A LISTA DE CARROS
+        return carrosvendidos;
+
+    }
 }
 

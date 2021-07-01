@@ -6,14 +6,14 @@ public class CarroModel {
     private Integer codigo;
     private Integer codigovenda;
     private String  modelo;
-    private String marca;
-    private String ano;
-    private String placa;
-    private String cor;
-    private String chassi;
-    private String datacompra;
-    private String precovenda;
+    private String  marca;
+    private String  ano;
+    private String  placa;
+    private String  cor;
+    private String  chassi;
+    private String  datacompra;
     private String  preco;
+    private String  precovenda;
 
 
     public Integer getCodigo() {

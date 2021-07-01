@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.carsales.Uteis.LinhaConsultarAdapter;
+import com.example.carsales.Uteis.LinhaConsultarAdapterVendidos;
 import com.example.carsales.model.CarroModel;
 import com.example.carsales.repository.CarroRepository;
 
 import java.util.List;
 
-public class ConsultarActivity extends AppCompatActivity {
+public class ConsultarCarrosVendidosActivity extends AppCompatActivity {
 
     //CRIANDO UM OBJETO DO TIPO ListView PARA RECEBER OS REGISTROS DE UM ADAPTER
     ListView listViewCarros;
@@ -24,7 +24,7 @@ public class ConsultarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consultar);
+        setContentView(R.layout.activity_consultar_carros_vendidos);
 
         //VINCULANDO O LISTVIEW DA TELA AO OBJETO CRIADO
         listViewCarros = (ListView)this.findViewById(R.id.listViewCarros);
@@ -32,7 +32,7 @@ public class ConsultarActivity extends AppCompatActivity {
         //VINCULANDO O BOTÃO VOLTAR DA TELA AO OBJETO CRIADO
         buttonVoltar    = (Button)this.findViewById(R.id.buttonVoltar);
 
-        //CHAMA O MÉTODO QUE CARREGA AS PESSOAS CADASTRADAS NA BASE DE DADOS
+        //CHAMA O MÉTODO QUE CARREGA OS CARROS CADASTRADOS NA BASE DE DADOS
         this.CarregarCarrosCadastrados();
 
         //CHAMA O MÉTODO QUE CRIA O EVENTO PARA O BOTÃO VOLTAR
@@ -55,15 +55,15 @@ public class ConsultarActivity extends AppCompatActivity {
             }
         });
     }
-    //MÉTODO QUE CONSULTA OS CARROS CADASTRADOS
+    //MÉTODO QUE CONSULTA OS CARROS VENDIDOS
     protected  void CarregarCarrosCadastrados(){
 
         CarroRepository carroRepository =  new CarroRepository(this);
 
-        //BUSCA AS PESSOAS CADASTRADAS
-        List<CarroModel> carros = carroRepository.SelecionarTodos();
+        //BUSCA OS CARROS VENDIDOS
+        List<CarroModel> carros = carroRepository.SelecionarTodosVendidos();
 
         //SETA O ADAPTER DA LISTA COM OS REGISTROS RETORNADOS DA BASE
-        listViewCarros.setAdapter(new LinhaConsultarAdapter(this, carros));
+        listViewCarros.setAdapter(new LinhaConsultarAdapterVendidos(this, carros));
     }
 }
