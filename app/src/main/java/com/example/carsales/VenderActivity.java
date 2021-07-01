@@ -1,5 +1,6 @@
 package com.example.carsales;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -76,6 +77,13 @@ public class VenderActivity extends AppCompatActivity {
 
         /*ALTERANDO O REGISTRO*/
         new CarroRepository(this).Atualizar(carroModel);
+
+
+        Intent intentRedirecionar = new Intent(getApplicationContext(), ConsultarActivity.class);
+
+        startActivity(intentRedirecionar);
+
+        finish();
 
 
     }

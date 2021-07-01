@@ -30,11 +30,103 @@
             android:text="Modelo"
             android:id="@+id/textViewModelo" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" - "
+            android:id="@+id/textViewTracoMarca" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Marca"
+            android:id="@+id/textViewMarca" />
+
+
+
     </LinearLayout>
+
     <LinearLayout
+
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Placa"
+            android:id="@+id/textViewPlaca" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" - "
+            android:id="@+id/textViewTracoPreco" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Ano"
+            android:id="@+id/textViewAno" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" - "
+            android:id="@+id/textViewTracoAno" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Cor"
+            android:id="@+id/textViewCor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" - "
+            android:id="@+id/textViewTracoCor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Chassi"
+            android:id="@+id/textViewChassi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" - "
+            android:id="@+id/textViewTracoChassi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Data"
+            android:id="@+id/textViewData" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" - "
+            android:id="@+id/textViewTracoData" />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,6 +134,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Preço"
             android:id="@+id/textViewPreco" />
+
+
     </LinearLayout>
 
     <RelativeLayout

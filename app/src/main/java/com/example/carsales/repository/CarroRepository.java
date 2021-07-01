@@ -33,6 +33,12 @@ public class CarroRepository {
         ContentValues contentValues = new ContentValues();
         /*MONTANDO OS PARAMETROS PARA SEREM SALVOS*/
         contentValues.put("ds_modelo", carroModel.getModelo());
+        contentValues.put("ds_marca", carroModel.getMarca());
+        contentValues.put("ds_ano", carroModel.getAno());
+        contentValues.put("ds_placa", carroModel.getPlaca());
+        contentValues.put("ds_cor", carroModel.getCor());
+        contentValues.put("ds_chassi", carroModel.getChassi());
+        contentValues.put("ds_data", carroModel.getDataCompra());
         contentValues.put("ds_preco", carroModel.getPreco());
 
         /*EXECUTANDO INSERT DE UM NOVO REGISTRO*/
@@ -63,10 +69,22 @@ public class CarroRepository {
 
         carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
         carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
+        carroModel.setMarca(cursor.getString(cursor.getColumnIndex("ds_marca")));
+        carroModel.setAno(cursor.getString(cursor.getColumnIndex("ds_ano")));
+        carroModel.setPlaca(cursor.getString(cursor.getColumnIndex("ds_placa")));
+        carroModel.setCor(cursor.getString(cursor.getColumnIndex("ds_cor")));
+        carroModel.setChassi(cursor.getString(cursor.getColumnIndex("ds_chassi")));
+        carroModel.setDataCompra(cursor.getString(cursor.getColumnIndex("ds_data")));
         carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
 
         contentValues.put("id_carro", carroModel.getCodigo());
         contentValues.put("ds_modelo", carroModel.getModelo());
+        contentValues.put("ds_marca", carroModel.getMarca());
+        contentValues.put("ds_ano", carroModel.getAno());
+        contentValues.put("ds_placa", carroModel.getPlaca());
+        contentValues.put("ds_cor", carroModel.getCor());
+        contentValues.put("ds_chassi", carroModel.getChassi());
+        contentValues.put("ds_data", carroModel.getDataCompra());
         contentValues.put("ds_preco", carroModel.getPreco());
 
         databaseUtil.GetConexaoDataBase().insert("tb_vendido", null,contentValues);
@@ -140,6 +158,12 @@ public class CarroRepository {
         StringBuilder stringBuilderQuery = new StringBuilder();
         stringBuilderQuery.append(" SELECT id_carro,      ");
         stringBuilderQuery.append("        ds_modelo,       ");
+        stringBuilderQuery.append("        ds_marca,       ");
+        stringBuilderQuery.append("        ds_ano,       ");
+        stringBuilderQuery.append("        ds_placa,       ");
+        stringBuilderQuery.append("        ds_cor,       ");
+        stringBuilderQuery.append("        ds_chassi,       ");
+        stringBuilderQuery.append("        ds_data,       ");
         stringBuilderQuery.append("        ds_preco       ");
         stringBuilderQuery.append("  FROM  tb_carro       ");
         stringBuilderQuery.append(" ORDER BY ds_modelo       ");
@@ -161,6 +185,12 @@ public class CarroRepository {
             //ADICIONANDO OS DADOS DO CARRO
             carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
             carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
+            carroModel.setMarca(cursor.getString(cursor.getColumnIndex("ds_marca")));
+            carroModel.setAno(cursor.getString(cursor.getColumnIndex("ds_ano")));
+            carroModel.setPlaca(cursor.getString(cursor.getColumnIndex("ds_placa")));
+            carroModel.setCor(cursor.getString(cursor.getColumnIndex("ds_cor")));
+            carroModel.setChassi(cursor.getString(cursor.getColumnIndex("ds_chassi")));
+            carroModel.setDataCompra(cursor.getString(cursor.getColumnIndex("ds_data")));
             carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
 
 

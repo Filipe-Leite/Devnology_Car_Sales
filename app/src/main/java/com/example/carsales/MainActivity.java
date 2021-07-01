@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         else if(opcaoMenu.equals("Carros vendidos")){
             Toast.makeText(getApplicationContext(), "Opção inválida!", Toast.LENGTH_SHORT).show();
         }
+        else if(opcaoMenu.equals("Vendas")){
+            Toast.makeText(getApplicationContext(), "Opção inválida!", Toast.LENGTH_SHORT).show();
+        }
         else
             Toast.makeText(getApplicationContext(), "Opção inválida!", Toast.LENGTH_SHORT).show();
 
@@ -83,11 +86,12 @@ public class MainActivity extends AppCompatActivity {
     //CRIA A OPÇÕES DA NOSSA LISTA E ADICIONA AO LISTVIEW DA NOSSA TELA.
     protected  void CarregaOpcoesLista(){
 
-        String[] itens = new String[3];
+        String[] itens = new String[4];
 
         itens[0] = "Cadastrar";
         itens[1] = "Carros disponíveis";
         itens[2] = "Carros vendidos";
+        itens[3] = "Vendas";
 
         ArrayAdapter<String> arrayItens = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,itens);
 

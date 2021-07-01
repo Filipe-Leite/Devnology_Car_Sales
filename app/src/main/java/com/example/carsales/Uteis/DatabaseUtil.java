@@ -27,6 +27,12 @@ public class DatabaseUtil extends SQLiteOpenHelper {
         stringBuilderCreateTable.append(" CREATE TABLE tb_carro (");
         stringBuilderCreateTable.append("        id_carro      INTEGER PRIMARY KEY AUTOINCREMENT, ");
         stringBuilderCreateTable.append("        ds_modelo        TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_marca        TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_ano           TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_placa         TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_cor           TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_chassi        TEXT    NOT NULL,            ");
+        stringBuilderCreateTable.append("        ds_data        TEXT    NOT NULL,            ");
         stringBuilderCreateTable.append("        ds_preco         TEXT    NOT NULL)            ");
 
         db.execSQL(stringBuilderCreateTable.toString());
@@ -37,7 +43,13 @@ public class DatabaseUtil extends SQLiteOpenHelper {
         stringBuilderCreateTableVendido.append("        id_vendido      INTEGER PRIMARY KEY AUTOINCREMENT, ");
         stringBuilderCreateTableVendido.append("        id_carro        INTEGER    NOT NULL,            ");
         stringBuilderCreateTableVendido.append("        ds_modelo        TEXT    NOT NULL,            ");
-        stringBuilderCreateTableVendido.append("        ds_preco        TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_marca         TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_ano           TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_placa         TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_cor           TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_chassi        TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_data          TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        ds_preco         TEXT    NOT NULL,            ");
         stringBuilderCreateTableVendido.append("        ds_preco_venda         TEXT     NULL)            ");
 
         db.execSQL(stringBuilderCreateTableVendido.toString());

@@ -15,6 +15,12 @@ public class CadastrarActivity extends AppCompatActivity {
 
     /*COMPONENTES DA TELA*/
     EditText editTextModelo;
+    EditText editTextMarca;
+    EditText editTextAno;
+    EditText editTextPlaca;
+    EditText editTextCor;
+    EditText editTextChassi;
+    EditText editTextData;
     EditText editTextPreco;
     Button buttonSalvar;
     Button buttonVoltar;
@@ -34,6 +40,12 @@ public class CadastrarActivity extends AppCompatActivity {
     protected void CriarComponentes() {
 
         editTextModelo = (EditText) this.findViewById(R.id.editTextModelo);
+        editTextMarca = (EditText) this.findViewById(R.id.editTextMarca);
+        editTextAno = (EditText) this.findViewById(R.id.editTextAno);
+        editTextPlaca = (EditText) this.findViewById(R.id.editTextPlaca);
+        editTextCor = (EditText) this.findViewById(R.id.editTextCor);
+        editTextChassi = (EditText) this.findViewById(R.id.editTextChassi);
+        editTextData = (EditText) this.findViewById(R.id.editTextData);
         editTextPreco = (EditText) this.findViewById(R.id.editTextPreco);
         buttonSalvar = (Button) this.findViewById(R.id.buttonSalvar);
         buttonVoltar = (Button) this.findViewById(R.id.buttonVoltar);
@@ -68,13 +80,17 @@ public class CadastrarActivity extends AppCompatActivity {
     //VALIDA OS CAMPOS E SALVA AS INFORMAÇÕES NO BANCO DE DADOS
     protected void Salvar_onClick() {
 
-            /*CRIANDO UM OBJETO PESSOA*/
+            /*CRIANDO UM OBJETO CARRO*/
             CarroModel carroModel = new CarroModel();
 
-            /*SETANDO O VALOR DO CAMPO MODELO*/
+            /*SETANDO O VALOR DOS CAMPOS*/
             carroModel.setModelo(editTextModelo.getText().toString().trim());
-
-            /*SETANDO O VALOR DO CAMPO PRECO*/
+            carroModel.setMarca(editTextMarca.getText().toString().trim());
+            carroModel.setAno(editTextAno.getText().toString().trim());
+            carroModel.setPlaca(editTextPlaca.getText().toString().trim());
+            carroModel.setCor(editTextCor.getText().toString().trim());
+            carroModel.setChassi(editTextChassi.getText().toString().trim());
+            carroModel.setDataCompra(editTextData.getText().toString().trim());
             carroModel.setPreco(editTextPreco.getText().toString().trim());
 
             /*SALVANDO UM NOVO REGISTRO*/
@@ -86,6 +102,12 @@ public class CadastrarActivity extends AppCompatActivity {
         protected void LimparCampos () {
 
             editTextModelo.setText(null);
+            editTextMarca.setText(null);
+            editTextAno.setText(null);
+            editTextPlaca.setText(null);
+            editTextCor.setText(null);
+            editTextChassi.setText(null);
+            editTextData.setText(null);
             editTextPreco.setText(null);
         }
 }

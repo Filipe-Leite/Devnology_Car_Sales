@@ -6,6 +6,12 @@ public class CarroModel {
     private Integer codigo;
     private Integer codigovenda;
     private String  modelo;
+    private String marca;
+    private String ano;
+    private String placa;
+    private String cor;
+    private String chassi;
+    private String datacompra;
     private String precovenda;
     private String  preco;
 
@@ -20,8 +26,8 @@ public class CarroModel {
     public Integer getCodigoVenda()  {
         return codigovenda;
     }
-    public void setCodigoVenda(Integer codigo) {
-        this.codigovenda = codigo;
+    public void setCodigoVenda(Integer codigovenda) {
+        this.codigovenda = codigovenda;
     }
 
     public String getModelo() {
@@ -38,10 +44,53 @@ public class CarroModel {
         this.precovenda = precodevenda;
     }
 
+    public String getMarca() {
+        return marca;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getChassi() {
+        return chassi;
+    }
+    public void setChassi(String chassi) {
+        this.chassi = chassi;
+    }
+
+    public String getDataCompra() {
+        return datacompra;
+    }
+    public void setDataCompra(String datacompra) {
+        this.datacompra = datacompra;
+    }
+
     public String getPreco() {
         return preco;
     }
     public void setPreco(String preco) {
         this.preco = preco;
     }
+
 }

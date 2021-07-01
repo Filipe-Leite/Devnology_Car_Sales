@@ -69,6 +69,30 @@ public class LinhaConsultarAdapter extends BaseAdapter {
         //CAMPO QUE VAI MOSTRAR O MODELO DO CARRO
         TextView textViewModelo            = (TextView) viewLinhaLista.findViewById(R.id.textViewModelo);
 
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewMarca          = (TextView) viewLinhaLista.findViewById(R.id.textViewMarca);
+
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewAno          = (TextView) viewLinhaLista.findViewById(R.id.textViewAno);
+
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewPlaca         = (TextView) viewLinhaLista.findViewById(R.id.textViewPlaca);
+
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewCor          = (TextView) viewLinhaLista.findViewById(R.id.textViewCor);
+
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewChassi          = (TextView) viewLinhaLista.findViewById(R.id.textViewChassi);
+
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewData          = (TextView) viewLinhaLista.findViewById(R.id.textViewData);
+
         //CAMPO QUE VAI MOSTRAR O PREÇO DO CARRO
         TextView textViewPreco            = (TextView) viewLinhaLista.findViewById(R.id.textViewPreco);
 
@@ -83,6 +107,24 @@ public class LinhaConsultarAdapter extends BaseAdapter {
 
         //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
         textViewModelo.setText(carroModels.get(position).getModelo());
+
+        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
+        textViewMarca.setText(carroModels.get(position).getMarca());
+
+        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
+        textViewAno.setText(carroModels.get(position).getAno());
+
+        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
+        textViewPlaca.setText(carroModels.get(position).getPlaca());
+
+        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
+        textViewCor.setText(carroModels.get(position).getCor());
+
+        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
+        textViewChassi.setText(carroModels.get(position).getChassi());
+
+        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
+        textViewData.setText(carroModels.get(position).getDataCompra());
 
         //SETANDO O PREÇO NO CAMPO DA NOSSA VIEW
         textViewPreco.setText(carroModels.get(position).getPreco());
@@ -110,13 +152,8 @@ public class LinhaConsultarAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-
-
                 //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
                 carroRepository.Transferir(carroModels.get(position).getCodigo());
-
-                //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
-                Toast.makeText(consultarActivity, "Carro Vendido!", Toast.LENGTH_LONG).show();
 
 //                //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
 //                AtualizarLista();
