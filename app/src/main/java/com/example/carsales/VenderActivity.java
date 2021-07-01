@@ -1,6 +1,5 @@
 package com.example.carsales;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,31 +9,36 @@ import android.widget.EditText;
 import com.example.carsales.model.CarroModel;
 import com.example.carsales.repository.CarroRepository;
 
+
 public class VenderActivity extends AppCompatActivity {
 
-
     /*COMPONENTES DA TELA*/
-    EditText editTextPreco;
-    Button buttonSalvar;
-    Button buttonVoltar;
+    EditText editTextCodigo;
+    EditText editTextPrecoVenda;
+    Button buttonVender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vender);
-        //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
+
+        //CHAMA O MÉTODO PARA CRIAR OS COMPONENTES DA TELA
         this.CriarComponentes();
 
-        //CRIA OS EVENTOS DOS COMPONENTES
+        //CHAMA O MÉTODO QUE CRIA EVENTOS PARA OS COMPONENTES
         this.CriarEventos();
+
+        //CARREGA OS VALORES NOS CAMPOS DA TELA.
+        this.CarregaValoresCampos();
     }
+
 
     //VINCULA OS COMPONENTES DA TELA COM OS DA ATIVIDADE
     protected void CriarComponentes() {
 
-        editTextPreco = (EditText) this.findViewById(R.id.editTextPreco);
-        buttonSalvar = (Button) this.findViewById(R.id.buttonSalvar);
-        buttonVoltar = (Button) this.findViewById(R.id.buttonVoltar);
+        editTextCodigo = (EditText) this.findViewById(R.id.editTextCodigo);
+        editTextPrecoVenda = (EditText) this.findViewById(R.id.editTextPrecoVenda);
+        buttonVender = (Button) this.findViewById(R.id.buttonVender);
 
     }
 
@@ -42,44 +46,60 @@ public class VenderActivity extends AppCompatActivity {
     protected void CriarEventos() {
 
         //CRIANDO EVENTO NO BOTÃO SALVAR
-        buttonSalvar.setOnClickListener(new View.OnClickListener() {
+        buttonVender.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Salvar_onClick();
-            }
-        });
-        //CRIANDO EVENTO NO BOTÃO VOLTAR
-        buttonVoltar.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Intent intentMainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intentMainActivity);
-                finish();
+                Alterar_onClick();
             }
         });
     }
 
-    //VALIDA OS CAMPOS E SALVA AS INFORMAÇÕES NO BANCO DE DADOS
-    protected void Salvar_onClick() {
-
-        /*CRIANDO UM OBJETO PESSOA*/
-        CarroModel carroModel = new CarroModel();
-
-        /*SETANDO O VALOR DO CAMPO PRECO*/
-        carroModel.setPreco(editTextPreco.getText().toString().trim());
-
-        /*SALVANDO UM NOVO REGISTRO*/
-        new CarroRepository(this).Salvar(carroModel);
-        LimparCampos();
-    }
 
     //LIMPA OS CAMPOS APÓS SALVAR AS INFORMAÇÕES
-    protected void LimparCampos () {
+    protected void LimparCampos() {
 
-        editTextPreco.setText(null);
+        editTextPrecoVenda.setText(null);
     }
+
+    //ALTERA UM REGISTRO
+    protected void Alterar_onClick() {
+
+        /*CRIANDO UM OBJETO CARRO*/
+        CarroModel carroModel = new CarroModel();
+
+        carroModel.setCodigo(Integer.parseInt(editTextCodigo.getText().toString()));
+
+        /*SETANDO O VALOR DO CAMPO DE VENDA*/
+        carroModel.setPrecoVenda(editTextPrecoVenda.getText().toString().trim());
+
+        /*ALTERANDO O REGISTRO*/
+        new CarroRepository(this).Atualizar(carroModel);
+
+
+    }
+
+    //CARREGA OS VALORES NOS CAMPOS APÓS RETORNAR DO SQLITE
+    protected void CarregaValoresCampos() {
+
+        CarroRepository carroRepository = new CarroRepository(this);
+
+        //PEGA O ID CARRO QUE FOI PASSADO COMO PARAMETRO ENTRE AS TELAS
+
+        Bundle extra = this.getIntent().getExtras();
+        int id_carro = extra.getInt("id_vendido");
+
+        //CONSULTA UMA VENDA POR ID
+        CarroModel carroModel = carroRepository.GetCarro(id_carro);
+
+        //SETA O CÓDIGO NA VIEW
+        editTextCodigo.setText(String.valueOf(carroModel.getCodigoVenda()));
+
+        //SETA O NOME NA VIEW
+        editTextPrecoVenda.setText(carroModel.getPrecoVenda());
+
+
+    }
+
 }

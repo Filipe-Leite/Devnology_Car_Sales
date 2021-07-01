@@ -40,6 +40,17 @@ public class CarroRepository {
 
     }
 
+    public void SalvarVenda(CarroModel carroModel) {
+
+        ContentValues contentValues = new ContentValues();
+        /*MONTANDO OS PARAMETROS PARA SEREM SALVOS*/
+        contentValues.put("ds_preco_venda", carroModel.getPreco());
+
+        /*EXECUTANDO INSERT DE UM NOVO REGISTRO*/
+        databaseUtil.GetConexaoDataBase().insert("tb_vendido", null, contentValues);
+
+    }
+
     public Integer Transferir(int codigo){
 
         Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery("SELECT * FROM tb_carro WHERE id_carro= " + codigo, null);
@@ -69,14 +80,14 @@ public class CarroRepository {
      */
     public void Atualizar(CarroModel carroModel) {
 
-        ContentValues contentValues = new ContentValues();
+        ContentValues contentValues =  new ContentValues();
 
         /*MONTA OS PARAMENTROS PARA REALIZAR UPDATE NOS CAMPOS*/
-        contentValues.put("ds_modelo", carroModel.getModelo());
-        contentValues.put("ds_preco", carroModel.getPreco());
+
+        contentValues.put("ds_preco_venda",      carroModel.getPrecoVenda());
 
         /*REALIZANDO UPDATE PELA CHAVE DA TABELA*/
-        databaseUtil.GetConexaoDataBase().update("tb_carro", contentValues, "id_carro = ?", new String[]{Integer.toString(carroModel.getCodigo())});
+        databaseUtil.GetConexaoDataBase().update("tb_vendido", contentValues, "id_vendido = ?", new String[]{Integer.toString(carroModel.getCodigo())});
     }
 
     /***
@@ -98,7 +109,7 @@ public class CarroRepository {
     public CarroModel GetCarro(int codigo) {
 
 
-        Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery("SELECT * FROM tb_carro WHERE id_carro= " + codigo, null);
+        Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery("SELECT * FROM tb_vendido WHERE id_vendido= " + codigo, null);
 
         cursor.moveToFirst();
 
@@ -106,9 +117,11 @@ public class CarroRepository {
         CarroModel carroModel = new CarroModel();
 
         //ADICIONANDO OS DADOS DO CARRO
+        carroModel.setCodigoVenda(cursor.getInt(cursor.getColumnIndex("id_vendido")));
         carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
         carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
         carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
+        carroModel.setPrecoVenda(cursor.getString(cursor.getColumnIndex("ds_preco_venda")));
 
         //RETORNANDO O CARRO
         return carroModel;

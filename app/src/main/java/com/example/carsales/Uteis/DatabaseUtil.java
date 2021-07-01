@@ -34,8 +34,8 @@ public class DatabaseUtil extends SQLiteOpenHelper {
         StringBuilder stringBuilderCreateTableVendido = new StringBuilder();
 
         stringBuilderCreateTableVendido.append(" CREATE TABLE tb_vendido (");
-        stringBuilderCreateTableVendido.append("        id_Vendido      INTEGER PRIMARY KEY AUTOINCREMENT, ");
-        stringBuilderCreateTableVendido.append("        id_carro        TEXT    NOT NULL,            ");
+        stringBuilderCreateTableVendido.append("        id_vendido      INTEGER PRIMARY KEY AUTOINCREMENT, ");
+        stringBuilderCreateTableVendido.append("        id_carro        INTEGER    NOT NULL,            ");
         stringBuilderCreateTableVendido.append("        ds_modelo        TEXT    NOT NULL,            ");
         stringBuilderCreateTableVendido.append("        ds_preco        TEXT    NOT NULL,            ");
         stringBuilderCreateTableVendido.append("        ds_preco_venda         TEXT     NULL)            ");

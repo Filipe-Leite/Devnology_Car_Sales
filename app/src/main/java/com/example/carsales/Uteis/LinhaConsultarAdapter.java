@@ -24,7 +24,7 @@ public class LinhaConsultarAdapter extends BaseAdapter {
     //CRIANDO UM OBJETO LayoutInflater PARA FAZER LINK A NOSSA VIEW(activity_linha_consultar.xml)
     private static LayoutInflater layoutInflater = null;
 
-    //CRIANDO UMA LISTA DE PESSOAS
+    //CRIANDO UMA LISTA DE CARROS
     List<CarroModel> carroModels = new ArrayList<CarroModel>();
 
     //CIRANDO UM OBJETO DA NOSSA CLASSE QUE FAZ ACESSO AO BANCO DE DADOS
@@ -33,7 +33,7 @@ public class LinhaConsultarAdapter extends BaseAdapter {
     //CRIANDO UM OBJETO DA NOSSA ATIVIDADE QUE CONTEM A LISTA
     private ConsultarActivity consultarActivity;
 
-    //CONSTRUTOR QUE VAI RECEBER A NOSSA ATIVIDADE COMO PARAMETRO E A LISTA DE PESSOAS QUE VAI RETORNAR
+    //CONSTRUTOR QUE VAI RECEBER A NOSSA ATIVIDADE COMO PARAMETRO E A LISTA DE CARROS QUE VAI RETORNAR
     //DA NOSSA BASE DE DADOS
     public LinhaConsultarAdapter(ConsultarActivity consultarActivity, List<CarroModel> carroModels) {
 
@@ -111,25 +111,27 @@ public class LinhaConsultarAdapter extends BaseAdapter {
             public void onClick(View v) {
 
 
+
+                //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
+                carroRepository.Transferir(carroModels.get(position).getCodigo());
+
+                //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
+                Toast.makeText(consultarActivity, "Carro Vendido!", Toast.LENGTH_LONG).show();
+
+//                //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
+//                AtualizarLista();
+
+
+
                 Intent intentRedirecionar = new Intent(consultarActivity, VenderActivity.class);
 
                 intentRedirecionar.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-                intentRedirecionar.putExtra("id_carro",carroModels.get(position).getCodigo());
+                intentRedirecionar.putExtra("id_vendido",carroModels.get(position).getCodigo());
 
                 consultarActivity.startActivity(intentRedirecionar);
 
                 consultarActivity.finish();
-
-//                //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
-//                carroRepository.Transferir(carroModels.get(position).getCodigo());
-//
-//                //MOSTRA A MENSAGEM APÓS EXCLUIR UM REGISTRO
-//                Toast.makeText(consultarActivity, "Carro Vendido!", Toast.LENGTH_LONG).show();
-//
-//                //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
-//                AtualizarLista();
-
 
             }
         });
