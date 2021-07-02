@@ -59,7 +59,7 @@ public class LinhaConsultarAdapterVendidos extends BaseAdapter {
         final View viewLinhaLista = layoutInflater.inflate(R.layout.activity_linha_consultar_vendidos,null);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar_vendidos.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DO CARRO
         TextView textViewCodigo                 = (TextView) viewLinhaLista.findViewById(R.id.textViewCodigo);
 
         //CAMPO QUE VAI MOSTRAR O MODELO DO CARRO

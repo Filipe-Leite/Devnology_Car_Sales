@@ -56,41 +56,41 @@ public class LinhaConsultarAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-    //ESSE MÉTODO SETA OS VALORES DE UM ITEM DA NOSSA LISTA DE PESSOAS PARA UMA LINHA DO NOSSO LISVIEW
+    //ESSE MÉTODO SETA OS VALORES DE UM ITEM DA NOSSA LISTA DE CARROS PARA UMA LINHA DO NOSSO LISVIEW
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         //CRIANDO UM OBJETO DO TIPO View PARA ACESSAR O NOSSO ARQUIVO DE LAYOUT activity_linha_consultar.xml
         final View viewLinhaLista = layoutInflater.inflate(R.layout.activity_linha_consultar,null);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DD CARRO
         TextView textViewCodigo          = (TextView) viewLinhaLista.findViewById(R.id.textViewCodigo);
 
         //CAMPO QUE VAI MOSTRAR O MODELO DO CARRO
         TextView textViewModelo            = (TextView) viewLinhaLista.findViewById(R.id.textViewModelo);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DO CARRO
         TextView textViewMarca          = (TextView) viewLinhaLista.findViewById(R.id.textViewMarca);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DO CARRO
         TextView textViewAno          = (TextView) viewLinhaLista.findViewById(R.id.textViewAno);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DO CARRO
         TextView textViewPlaca         = (TextView) viewLinhaLista.findViewById(R.id.textViewPlaca);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DO CARRO
         TextView textViewCor          = (TextView) viewLinhaLista.findViewById(R.id.textViewCor);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DO CARRO
         TextView textViewChassi          = (TextView) viewLinhaLista.findViewById(R.id.textViewChassi);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
-        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DO CARRO
         TextView textViewData          = (TextView) viewLinhaLista.findViewById(R.id.textViewData);
 
         //CAMPO QUE VAI MOSTRAR O PREÇO DO CARRO

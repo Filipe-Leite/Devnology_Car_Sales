@@ -222,7 +222,7 @@ public class CarroRepository {
         stringBuilderQuery.append("        ds_chassi,       ");
         stringBuilderQuery.append("        ds_data,         ");
         stringBuilderQuery.append("        ds_data_venda,   ");
-        stringBuilderQuery.append("        ds_mes,          ");
+        stringBuilderQuery.append("        ds_mes,         ");
         stringBuilderQuery.append("        ds_preco,        ");
         stringBuilderQuery.append("        ds_preco_venda,  ");
         stringBuilderQuery.append("        (ds_preco_venda - ds_preco) as ds_lucro,        ");

@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Data:"
+            android:text="Data da venda:"
             android:id="@+id/textViewDataDoisPontos" />
 
         <TextView

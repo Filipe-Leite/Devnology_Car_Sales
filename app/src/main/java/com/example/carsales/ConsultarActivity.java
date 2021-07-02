@@ -32,7 +32,7 @@ public class ConsultarActivity extends AppCompatActivity {
         //VINCULANDO O BOTÃO VOLTAR DA TELA AO OBJETO CRIADO
         buttonVoltar    = (Button)this.findViewById(R.id.buttonVoltar);
 
-        //CHAMA O MÉTODO QUE CARREGA AS PESSOAS CADASTRADAS NA BASE DE DADOS
+        //CHAMA O MÉTODO QUE CARREGA OS CARROS CADASTRADOS NA BASE DE DADOS
         this.CarregarCarrosCadastrados();
 
         //CHAMA O MÉTODO QUE CRIA O EVENTO PARA O BOTÃO VOLTAR
@@ -60,7 +60,7 @@ public class ConsultarActivity extends AppCompatActivity {
 
         CarroRepository carroRepository =  new CarroRepository(this);
 
-        //BUSCA AS PESSOAS CADASTRADAS
+        //BUSCA OS CARROS CADASTRADOS
         List<CarroModel> carros = carroRepository.SelecionarTodos();
 
         //SETA O ADAPTER DA LISTA COM OS REGISTROS RETORNADOS DA BASE
