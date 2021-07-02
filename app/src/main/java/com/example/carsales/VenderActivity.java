@@ -1,14 +1,18 @@
 package com.example.carsales;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.carsales.model.CarroModel;
 import com.example.carsales.repository.CarroRepository;
+
+import java.util.Calendar;
 
 
 public class VenderActivity extends AppCompatActivity {
@@ -18,6 +22,9 @@ public class VenderActivity extends AppCompatActivity {
     EditText editTextPrecoVenda;
     EditText editTextDataVenda;
     Button buttonVender;
+
+    //CRIA POPUP COM O CALENDÁRIO
+    DatePickerDialog datePickerDialogData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,28 @@ public class VenderActivity extends AppCompatActivity {
     //CRIA OS EVENTOS DOS COMPONENTES
     protected void CriarEventos() {
 
+
+
+        //CRIANDO EVENTO CLICK PARA O CAMPO DATA DE NASCIMENTO MOSTRAR A POPUP
+        editTextDataVenda.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                datePickerDialogData.show();
+            }
+        });
+
+        //CRIANDO EVENTO FOCUS PARA O CAMPO DATA DE NASCIMENTO MOSTRAR A POPUP
+        editTextDataVenda.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                datePickerDialogData.show();
+
+            }
+        });
+
         //CRIANDO EVENTO NO BOTÃO SALVAR
         buttonVender.setOnClickListener(new View.OnClickListener() {
 
@@ -56,6 +85,25 @@ public class VenderActivity extends AppCompatActivity {
                 Alterar_onClick();
             }
         });
+        final Calendar calendarDataAtual = Calendar.getInstance();
+        int anoAtual   = calendarDataAtual.get(Calendar.YEAR);
+        int mesAtual   = calendarDataAtual.get(Calendar.MONTH);
+        int diaAtual   = calendarDataAtual.get(Calendar.DAY_OF_MONTH);
+
+        //CRIANDO A POPUP COM O CALENDÁRIO
+        datePickerDialogData = new DatePickerDialog(this,new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int anoSelecionado, int mesSelecionado, int diaSelecionado) {
+
+                //FORMATANDO O MÊS COM DOIS DÍGITOS
+                String mes = (String.valueOf((mesSelecionado + 1)).length() == 1 ? "0" + (mesSelecionado + 1 ): String.valueOf(mesSelecionado));
+
+                editTextDataVenda.setText(diaSelecionado + "-" + mes + "-" + anoSelecionado);
+
+            }
+
+        }, anoAtual, mesAtual, diaAtual);
     }
 
 

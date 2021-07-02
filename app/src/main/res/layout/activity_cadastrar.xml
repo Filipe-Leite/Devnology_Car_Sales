@@ -84,19 +84,6 @@ android:layout_height="match_parent">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Data da compra:"
-        android:id="@+id/textViewData" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:id="@+id/editTextData" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Valor da compra:"
         android:id="@+id/textViewPreco" />
 
@@ -105,6 +92,19 @@ android:layout_height="match_parent">
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:id="@+id/editTextPreco" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Data da compra:"
+        android:id="@+id/textViewData" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:id="@+id/editTextData" />
 
 
 
