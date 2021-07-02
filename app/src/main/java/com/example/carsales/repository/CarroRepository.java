@@ -213,13 +213,22 @@ public class CarroRepository {
         //MONTA A QUERY A SER EXECUTADA
         StringBuilder stringBuilderQuery = new StringBuilder();
         stringBuilderQuery.append(" SELECT id_vendido,      ");
-        stringBuilderQuery.append("        id_carro,       ");
+        stringBuilderQuery.append("        id_carro,        ");
         stringBuilderQuery.append("        ds_modelo,       ");
-        stringBuilderQuery.append("        ds_placa,       ");
-        stringBuilderQuery.append("        ds_preco,       ");
-        stringBuilderQuery.append("        ds_preco_venda       ");
+        stringBuilderQuery.append("        ds_marca,        ");
+        stringBuilderQuery.append("        ds_ano,          ");
+        stringBuilderQuery.append("        ds_cor,          ");
+        stringBuilderQuery.append("        ds_placa,        ");
+        stringBuilderQuery.append("        ds_chassi,       ");
+        stringBuilderQuery.append("        ds_data,         ");
+        stringBuilderQuery.append("        ds_data_venda,   ");
+        stringBuilderQuery.append("        ds_mes,          ");
+        stringBuilderQuery.append("        ds_preco,        ");
+        stringBuilderQuery.append("        ds_preco_venda,  ");
+        stringBuilderQuery.append("        (ds_preco_venda - ds_preco) as ds_lucro,        ");
+        stringBuilderQuery.append("        ds_comissao      ");
         stringBuilderQuery.append("  FROM  tb_vendido       ");
-        stringBuilderQuery.append(" ORDER BY ds_modelo       ");
+        stringBuilderQuery.append(" ORDER BY ds_modelo      ");
 
         //CONSULTANDO OS REGISTROS CADASTRADOS
         Cursor cursor = databaseUtil.GetConexaoDataBase().rawQuery(stringBuilderQuery.toString(), null);
@@ -236,12 +245,24 @@ public class CarroRepository {
             carroModel = new CarroModel();
 
             //ADICIONANDO OS DADOS DO CARRO
-            carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_carro")));
+            carroModel.setCodigo(cursor.getInt(cursor.getColumnIndex("id_vendido")));
+            carroModel.setCodigoVenda(cursor.getInt(cursor.getColumnIndex("id_carro")));
             carroModel.setModelo(cursor.getString(cursor.getColumnIndex("ds_modelo")));
+            carroModel.setMarca(cursor.getString(cursor.getColumnIndex("ds_marca")));
+            carroModel.setAno(cursor.getString(cursor.getColumnIndex("ds_ano")));
+            carroModel.setCor(cursor.getString(cursor.getColumnIndex("ds_cor")));
+            carroModel.setChassi(cursor.getString(cursor.getColumnIndex("ds_chassi")));
+            carroModel.setDataCompra(cursor.getString(cursor.getColumnIndex("ds_data")));
+            carroModel.setDataVenda(cursor.getString(cursor.getColumnIndex("ds_data_venda")));
+            carroModel.setMes(cursor.getString(cursor.getColumnIndex("ds_mes")));
             carroModel.setPlaca(cursor.getString(cursor.getColumnIndex("ds_placa")));
             carroModel.setPreco(cursor.getString(cursor.getColumnIndex("ds_preco")));
             carroModel.setPrecoVenda(cursor.getString(cursor.getColumnIndex("ds_preco_venda")));
+            carroModel.setLucro(cursor.getString(cursor.getColumnIndex("ds_lucro")));
 
+
+
+            carroModel.setComissao(cursor.getString(cursor.getColumnIndex("ds_comissao")));
 
             //ADICIONANDO UM CARROS NA LISTA
             carrosvendidos.add(carroModel);

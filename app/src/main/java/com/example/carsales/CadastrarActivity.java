@@ -24,6 +24,7 @@ public class CadastrarActivity extends AppCompatActivity {
     EditText editTextPreco;
     Button buttonSalvar;
     Button buttonVoltar;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

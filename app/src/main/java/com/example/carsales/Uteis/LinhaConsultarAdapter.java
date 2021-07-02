@@ -155,10 +155,6 @@ public class LinhaConsultarAdapter extends BaseAdapter {
                 //EXCLUINDO DA LISTA DE CARROS DISPONÍVEIS
                 carroRepository.Transferir(carroModels.get(position).getCodigo());
 
-//                //CHAMA O MÉTODO QUE ATUALIZA A LISTA COM OS REGISTROS QUE AINDA ESTÃO NA BASE
-//                AtualizarLista();
-
-
 
                 Intent intentRedirecionar = new Intent(consultarActivity, VenderActivity.class);
 

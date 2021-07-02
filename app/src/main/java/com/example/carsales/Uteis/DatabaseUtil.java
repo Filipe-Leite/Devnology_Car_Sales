@@ -33,7 +33,7 @@ public class DatabaseUtil extends SQLiteOpenHelper {
         stringBuilderCreateTable.append("        ds_cor           TEXT    NOT NULL,               ");
         stringBuilderCreateTable.append("        ds_chassi        TEXT    NOT NULL,               ");
         stringBuilderCreateTable.append("        ds_data          TEXT    NOT NULL,               ");
-        stringBuilderCreateTable.append("        ds_preco         TEXT    NOT NULL)               ");
+        stringBuilderCreateTable.append("        ds_preco         REAL    NOT NULL)               ");
 
         db.execSQL(stringBuilderCreateTable.toString());
 
@@ -51,10 +51,9 @@ public class DatabaseUtil extends SQLiteOpenHelper {
         stringBuilderCreateTableVendido.append("        ds_data          TEXT      NOT NULL,               ");
         stringBuilderCreateTableVendido.append("        ds_data_venda    TEXT      NULL,                   ");
         stringBuilderCreateTableVendido.append("        ds_mes           TEXT      NULL,                   ");
-        stringBuilderCreateTableVendido.append("        ds_preco         TEXT      NOT NULL,               ");
-        stringBuilderCreateTableVendido.append("        ds_preco_venda   TEXT      NULL,                   ");
-        stringBuilderCreateTableVendido.append("        ds_lucro         TEXT      NULL,                   ");
-        stringBuilderCreateTableVendido.append("        ds_comissao      TEXT      NULL)                   ");
+        stringBuilderCreateTableVendido.append("        ds_preco         REAL      NOT NULL,               ");
+        stringBuilderCreateTableVendido.append("        ds_preco_venda   REAL      NULL,                   ");
+        stringBuilderCreateTableVendido.append("        ds_comissao      REAL      NULL)                   ");
 
         db.execSQL(stringBuilderCreateTableVendido.toString());
 

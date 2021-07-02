@@ -17,7 +17,7 @@ public class CarroModel {
     private String  precovenda;
     private String  lucro;
     private String  comissao;
-
+    private String  mes;
 
     public Integer getCodigo() {
         return codigo;
@@ -115,6 +115,13 @@ public class CarroModel {
     }
     public void setComissao(String comissao) {
         this.comissao = comissao;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+    public void setMes(String mes) {
+        this.mes = mes;
     }
 
 }

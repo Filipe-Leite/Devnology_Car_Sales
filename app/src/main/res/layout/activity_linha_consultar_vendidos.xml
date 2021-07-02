@@ -5,32 +5,45 @@
     android:layout_height="fill_parent">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/textViewCodigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Codigo"
-            android:id="@+id/textViewCodigo" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
+            android:id="@+id/textViewTracoCodigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text=" - "
-            android:id="@+id/textViewTracoCodigo" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textViewModelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modelo"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Modelo"
-            android:id="@+id/textViewModelo" />
+            android:text="-"
+            android:id="@+id/textViewPlacaTraco" />
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Placa"
+            android:id="@+id/textViewPlaca" />
 
     </LinearLayout>
 
@@ -45,22 +58,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Placa:"
-            android:id="@+id/textViewPlacaDoisPontos" />
+            android:text="Lucro:"
+            android:id="@+id/textViewLucroDoisPontos" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Placa"
-            android:id="@+id/textViewPlaca" />
+            android:text="Lucro"
+            android:id="@+id/textViewLucro" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Data:"
+            android:id="@+id/textViewDataDoisPontos" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Data"
+            android:id="@+id/textViewDataVenda" />
 
     </LinearLayout>
 
-
-
-        <LinearLayout
+    <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -69,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text=" Preço de compra: "
+            android:text="Compra:"
             android:id="@+id/textViewPrecoCompraDoisPontos"/>
 
         <TextView
@@ -82,17 +107,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text=" Preço de venda: "
+            android:text="  Venda: "
             android:id="@+id/textViewPrecoVendaDoispontos"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Preco"
+            android:text="Preço"
             android:id="@+id/textViewPrecoVenda" />
-        >
+
     </LinearLayout>
 
 </LinearLayout>

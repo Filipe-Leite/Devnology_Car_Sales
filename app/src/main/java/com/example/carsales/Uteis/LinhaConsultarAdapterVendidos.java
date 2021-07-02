@@ -52,7 +52,7 @@ public class LinhaConsultarAdapterVendidos extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-    //ESSE MÉTODO SETA OS VALORES DE UM ITEM DA NOSSA LISTA DE PESSOAS PARA UMA LINHA DO NOSSO LISVIEW
+    //ESSE MÉTODO SETA OS VALORES DE UM ITEM DA NOSSA LISTA DE CARROS VENDIDOS PARA UMA LINHA DO NOSSO LISTVIEW
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         //CRIANDO UM OBJETO DO TIPO View PARA ACESSAR O NOSSO ARQUIVO DE LAYOUT activity_linha_consultar_vendidos.xml
@@ -60,20 +60,28 @@ public class LinhaConsultarAdapterVendidos extends BaseAdapter {
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar_vendidos.xml) AOS OBJETOS DECLARADOS.
         //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
-        TextView textViewCodigo          = (TextView) viewLinhaLista.findViewById(R.id.textViewCodigo);
+        TextView textViewCodigo                 = (TextView) viewLinhaLista.findViewById(R.id.textViewCodigo);
 
         //CAMPO QUE VAI MOSTRAR O MODELO DO CARRO
-        TextView textViewModelo            = (TextView) viewLinhaLista.findViewById(R.id.textViewModelo);
+        TextView textViewModelo                 = (TextView) viewLinhaLista.findViewById(R.id.textViewModelo);
 
         //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
         //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
-        TextView textViewPlaca         = (TextView) viewLinhaLista.findViewById(R.id.textViewPlaca);
+        TextView textViewPlaca                  = (TextView) viewLinhaLista.findViewById(R.id.textViewPlaca);
+
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewLucro                  = (TextView) viewLinhaLista.findViewById(R.id.textViewLucro);
+
+        //VINCULANDO OS CAMPOS DO ARQUIVO DE LAYOUT(activity_linha_consultar.xml) AOS OBJETOS DECLARADOS.
+        //CAMPO QUE VAI MOSTRAR O CÓDIGO DA PESSOA
+        TextView textViewDataVenda              = (TextView) viewLinhaLista.findViewById(R.id.textViewDataVenda);
 
         //CAMPO QUE VAI MOSTRAR O PREÇO DO CARRO
         TextView textViewPrecoCompra            = (TextView) viewLinhaLista.findViewById(R.id.textViewPrecoCompra);
 
         //CAMPO QUE VAI MOSTRAR O PREÇO DO CARRO
-        TextView textViewPrecoVenda            = (TextView) viewLinhaLista.findViewById(R.id.textViewPrecoVenda);
+        TextView textViewPrecoVenda             = (TextView) viewLinhaLista.findViewById(R.id.textViewPrecoVenda);
 
         //SETANDO O CÓDIGO NO CAMPO DA NOSSA VIEW
         textViewCodigo.setText(String.valueOf(carroModels.get(position).getCodigo()));
@@ -81,16 +89,21 @@ public class LinhaConsultarAdapterVendidos extends BaseAdapter {
         //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
         textViewModelo.setText(carroModels.get(position).getModelo());
 
-        //SETANDO O MODELO NO CAMPO DA NOSSA VIEW
+        //SETANDO O DATA DE VENDA NO CAMPO DA NOSSA VIEW
+        textViewDataVenda.setText(carroModels.get(position).getDataVenda());
+
+        //SETANDO O LUCRO NO CAMPO DA NOSSA VIEW
+        textViewLucro.setText(carroModels.get(position).getLucro());
+
+        //SETANDO O PLACA NO CAMPO DA NOSSA VIEW
         textViewPlaca.setText(carroModels.get(position).getPlaca());
 
-        //SETANDO O PREÇO NO CAMPO DA NOSSA VIEW
+        //SETANDO O PREÇO DE COMPRA NO CAMPO DA NOSSA VIEW
         textViewPrecoCompra.setText(carroModels.get(position).getPreco());
 
-        //SETANDO O PREÇO NO CAMPO DA NOSSA VIEW
+        //SETANDO O PREÇO DE VENDA NO CAMPO DA NOSSA VIEW
         textViewPrecoVenda.setText(carroModels.get(position).getPrecoVenda());
 
         return viewLinhaLista;
     }
-
 }
