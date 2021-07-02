@@ -1,0 +1,11 @@
+	A primeira decisão que eu tive foi escolher a linguagem. Eu escolhi o Java utilizando a IDE Android Studio 
+por não saber como realizar a tafera com a linguagem que eu tenho domínio, que é o python. Fazendo um aplicativo acreditei 
+que seria mais fácil, mesmo sem ter utilizado a linguagem Java e a IDE anteriormente. Então fui pegando alguns projetos na 
+e entendendo como funcionam as classes e os métodos na linguagem(que consumiu consideravelmente o tempo
+de realização do teste, junto com os bugs recorrentes) para poder aplicar isso na construção do aplicativo.
+	Tive algumas dificuldades de relacionamento dos métodos com o objeto do carro e o relacionamento com o banco
+de dados, por esse motivo não foi possível converter as datas para meses e retornar e listar os lucros e 
+prejuízos dos meses, portanto o botão de listar as vendas não está disponível para uso. Mas podem ser listados no aplicativo
+os carros disponíveis e os carros vendidos, de acordo com o que foi pedido no teste.
+	O projeto deve ser rodado na IDE android studio, podendo ser disponibilizado na playstore. Para ser rodado o projeto
+deve ser aberto na IDE e insatalada a AVD.
